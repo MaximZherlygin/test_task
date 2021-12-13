@@ -34,7 +34,7 @@ class HomePageSteps {
 
     static async deleteNewTodoByCheckbox(name: string): Promise<void> {
         const homePage: HomePage = await new HomePage();
-        assert.ok(await homePage.isOpened());
+        assert.ok(await homePage.isOpened(), 'Home Page didn\'t opened');
 
         const currentCounterValue = Number(await homePage.getCounterText());
         await homePage.clickCheckboxButton();
@@ -63,8 +63,26 @@ class HomePageSteps {
     static async reloadPageAndGetTodoName(): Promise<string> {
         await Browser.refresh();
         const homePage: HomePage = new HomePage();
-        assert.ok(await homePage.isOpened());
+        assert.ok(await homePage.isOpened(), 'Home Page didn\'t opened');
         return await homePage.getNewTodoText();
+    }
+
+    static async clickCheckboxAndReloadPage(): Promise<void> {
+        const homePage: HomePage = await new HomePage();
+        assert.ok(await homePage.isOpened(), 'Home Page didn\'t opened');
+
+        const todoName: string = await homePage.getNewTodoText();
+
+        const currentCounterValue = Number(await homePage.getCounterText());
+        await homePage.clickCheckboxButton();
+        const newCounterValue = Number(await homePage.getCounterText());
+        const expectedValue: number = currentCounterValue - 1;
+        assert.strictEqual(newCounterValue, expectedValue, `${newCounterValue} != ${expectedValue}`);
+
+        await Browser.refresh();
+        assert.ok(await homePage.isOpened(), 'Home Page didn\'t opened');
+        assert.ok(await homePage.isTodoExist(todoName), 'Todo didn\'t found');
+        assert.ok(await homePage.isCheckboxActivated(), 'Checkbox isn\'t active');
     }
 }
 

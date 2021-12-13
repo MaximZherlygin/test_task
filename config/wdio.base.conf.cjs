@@ -1,7 +1,7 @@
-// const drivers = {
-//     chrome: { version: '96.0.4664.45' },
-//     firefox: { version: '0.30.0' },
-// }
+const drivers = {
+    chrome: { version: '96.0.4664.45' },
+    firefox: { version: '0.30.0' },
+}
 
 exports.config = {
     specs: [
@@ -10,13 +10,13 @@ exports.config = {
     suites: {
 
     },
-    // services: [
-    //     ['selenium-standalone', {
-    //         logPath: 'logs',
-    //         installArgs: { drivers },
-    //         args: { drivers },
-    //     }]
-    // ],
+    services: [
+        ['selenium-standalone', {
+            logPath: 'logs',
+            installArgs: { drivers },
+            args: { drivers },
+        }]
+    ],
     maxInstances: 1,
     logLevel: 'info',
     bail: 0,

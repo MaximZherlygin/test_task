@@ -20,6 +20,7 @@ class HomePage extends BasePage {
     checkBoxButton: Button = new Button('//li[last()]//input[@class = "toggle"]', 'Checkbox button');
     clearCompletedButton: Button = new Button('//button[contains(@class, "clear-completed")]', 'Clear completed button');
     editTextBox: TextBox = new TextBox('//input[@class = "edit"]', 'Edit Textbox');
+    completedTodoForm: Form = new Form('//li[@class = "completed"]', 'Completed Todo form')
 
     constructor() {
         super('//todo-app', 'Todos app home page');
@@ -41,6 +42,11 @@ class HomePage extends BasePage {
     async isTodoDeleted(name: string): Promise<boolean> {
         const element: Text = new Text(this.todoTextByNameLocator.replace("{name}", name), 'Todo text');
         return element.isNotVisible();
+    }
+
+    async isTodoExist(name: string): Promise<boolean> {
+        const element: Text = new Text(this.todoTextByNameLocator.replace("{name}", name), 'Todo text');
+        return element.isExist();
     }
 
     async getCounterText(): Promise<string> {
@@ -65,6 +71,10 @@ class HomePage extends BasePage {
 
     async editTodoText(newText: string): Promise<void> {
         return this.editTextBox.sendTextWithoutClear(newText);
+    }
+
+    async isCheckboxActivated(): Promise<boolean> {
+        return this.completedTodoForm.isExist();
     }
 }
 
