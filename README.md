@@ -11,17 +11,17 @@ from root directory of project to install the required libraries.
 
 ### Run
 
-First, run
-```shell
-npm run build
-```
-to compile `*.ts` files.
-
 If it needs, run
 ```shell
 npm run eslint
 ```
 to run eslint.
+
+Then, run
+```shell
+npm run build
+```
+to compile `*.ts` files.
 
 **Chrome**
 
@@ -31,6 +31,9 @@ To perform testing, run: `npm run chrome/all`, or run `npm run chrome/case_N`, w
 
 To perform testing, run: `npm run firefox/all`, or run `npm run firefox/case_N`, where N - number of testcase.
 
+### Configuration
+
+You can change configuration of test performing (for example, timeouts) in `config/wdio.base.conf.cjs`.
 
 ### Test cases
 
@@ -117,6 +120,11 @@ test implementation. I use the same pattern for the elements.
 Each testcase is located in a separate file in the `test/specs` folder. Thanks for PageObjectSteps it's easy to read them
 and understand their logic.
 
-Thanks for autotests I found a bug in Case #5 (after editing and reloading name of record doesn't save).
+The whole project is divided into 3 parts:
+1. Config - configurations of test running, integrations with tools and so on.
+2. Framework - contains utils, base elements, base pages, constants and browser interface.
+3. Test - contains test specs, page objects, page steps and other things that refers to the testing.
+
+Thanks for my autotests I found a bug in Case #5 (after editing and reloading name of record doesn't save).
 
 That was interesting task because I found new features for me. 
