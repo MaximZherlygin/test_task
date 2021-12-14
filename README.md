@@ -1,5 +1,37 @@
 ## Test automation assignment Enablon
 
+### Installation
+Make sure you have working `node`, `npm` and `JDK` (JDK is necessary for several tools).
+
+First, run
+```shell
+npm install
+```
+from root directory of project to install the required libraries.
+
+### Run
+
+First, run
+```shell
+npm run build
+```
+to compile `*.ts` files.
+
+If it needs, run
+```shell
+npm run eslint
+```
+to run eslint.
+
+**Chrome**
+
+To perform testing, run: `npm run chrome/all`, or run `npm run chrome/case_N`, where N - number of testcase.
+
+**Firefox**
+
+To perform testing, run: `npm run firefox/all`, or run `npm run firefox/case_N`, where N - number of testcase.
+
+
 ### Test cases
 
 ***Precondition***
@@ -73,4 +105,18 @@
 | Enter random string and press enter | The string appeared in the list, the counter appeared shows the number 1 |
 | Double click on the new record, enter new random string, don't press enter and reload the page | New record hasn't been edited |
 
+## About the project
 
+I used `WebdriverIO` as automation framework because of simple project setup; more flexible testing setup;
+integration with other tools for test automation immediately upon installation; simple integration with BrowserStack
+and other similar tools; and so on. This framework really has many advantages.
+
+What about code, I use Page Object pattern because it is best practice and this pattern helps to separate logic and
+test implementation. I use the same pattern for the elements. 
+
+Each testcase is located in a separate file in the `test/specs` folder. Thanks for PageObjectSteps it's easy to read them
+and understand their logic.
+
+Thanks for autotests I found a bug in Case #5 (after editing and reloading name of record doesn't save).
+
+That was interesting task because I found new features for me. 

@@ -7,7 +7,6 @@ import assert from "assert";
 class HomePageSteps {
     static async createNewTodo(count: number): Promise<string[]> {
         const homePage: HomePage = await new HomePage();
-        // await new Promise(resolve => setTimeout(resolve, 10000));
         assert.ok(await homePage.isOpened(), 'Home Page didn\'t opened');
         const todoNames: string[] = [];
         for (let i = 0; i < count; i++) {
@@ -83,6 +82,24 @@ class HomePageSteps {
         assert.ok(await homePage.isOpened(), 'Home Page didn\'t opened');
         assert.ok(await homePage.isTodoExist(todoName), 'Todo didn\'t found');
         assert.ok(await homePage.isCheckboxActivated(), 'Checkbox isn\'t active');
+    }
+
+    static async clickInputAndPressEnter() {
+        const homePage: HomePage = new HomePage();
+        await homePage.clickOnNewTodoTextBox();
+        await Browser.sendKey(Keys.Enter);
+    }
+
+    static async editNewTodoWithoutEnter(): Promise<string[]> {
+        const homePage: HomePage = new HomePage();
+        const todoName: string = await homePage.getNewTodoText();
+        await homePage.doubleClickLastTodoText();
+        const stringLength: number = 5;
+        const randomString: string = RandomUtils.generateRandomString(stringLength);
+        await homePage.editTodoText(randomString);
+        await Browser.refresh();
+        const newTodoName: string = await homePage.getNewTodoText();
+        return [todoName, newTodoName];
     }
 }
 

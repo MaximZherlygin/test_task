@@ -8,7 +8,30 @@ exports.config = {
         './lib/test/specs/**/*.js'
     ],
     suites: {
-
+        case_1: [
+            './lib/test/**/specs/case.1.js'
+        ],
+        case_2: [
+            './lib/test/**/specs/case.2.js'
+        ],
+        case_3: [
+            './lib/test/**/specs/case.3.js'
+        ],
+        case_4: [
+            './lib/test/**/specs/case.4.js'
+        ],
+        case_5: [
+            './lib/test/**/specs/case.5.js'
+        ],
+        case_6: [
+            './lib/test/**/specs/case.6.js'
+        ],
+        case_7: [
+            './lib/test/**/specs/case.7.js'
+        ],
+        case_8: [
+            './lib/test/**/specs/case.8.js'
+        ],
     },
     services: [
         ['selenium-standalone', {

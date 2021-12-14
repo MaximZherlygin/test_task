@@ -20,6 +20,22 @@
     "build": "tsc --outDir lib",
     "eslint": "npx eslint . --ext .ts",
     "chrome/all": "wdio config/wdio.chrome.conf.cjs",
-    "firefox/all": "wdio config/wdio.firefox.conf.cjs"
+    "firefox/all": "wdio config/wdio.firefox.conf.cjs",
+    "chrome/case_1": "wdio config/wdio.chrome.conf.cjs --suite case_1",
+    "chrome/case_2": "wdio config/wdio.chrome.conf.cjs --suite case_2",
+    "chrome/case_3": "wdio config/wdio.chrome.conf.cjs --suite case_3",
+    "chrome/case_4": "wdio config/wdio.chrome.conf.cjs --suite case_4",
+    "chrome/case_5": "wdio config/wdio.chrome.conf.cjs --suite case_5",
+    "chrome/case_6": "wdio config/wdio.chrome.conf.cjs --suite case_6",
+    "chrome/case_7": "wdio config/wdio.chrome.conf.cjs --suite case_7",
+    "chrome/case_8": "wdio config/wdio.chrome.conf.cjs --suite case_8",
+    "firefox/case_1": "wdio config/wdio.firefox.conf.cjs --suite case_1",
+    "firefox/case_2": "wdio config/wdio.firefox.conf.cjs --suite case_2",
+    "firefox/case_3": "wdio config/wdio.firefox.conf.cjs --suite case_3",
+    "firefox/case_4": "wdio config/wdio.firefox.conf.cjs --suite case_4",
+    "firefox/case_5": "wdio config/wdio.firefox.conf.cjs --suite case_5",
+    "firefox/case_6": "wdio config/wdio.firefox.conf.cjs --suite case_6",
+    "firefox/case_7": "wdio config/wdio.firefox.conf.cjs --suite case_7",
+    "firefox/case_8": "wdio config/wdio.firefox.conf.cjs --suite case_8"
   }
 }

@@ -81,6 +81,13 @@ class BaseElement {
         }
     }
 
+    async click(): Promise<void> {
+        const element: WebElement = await this.waitForClickable({
+            timeout: browser.options.waitforTimeout
+        });
+        element.click();
+    }
+
     async doubleClick(): Promise<void> {
         const element: WebElement = await this.getElement();
         await element.doubleClick();

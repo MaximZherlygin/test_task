@@ -7,7 +7,7 @@ describe('Todos application', (): void => {
         const [expectedName, newName] = await HomePageSteps.editNewTodo();
         assert.strictEqual(newName, expectedName, `${newName} != ${expectedName}`);
 
-        // const todoRefreshName: string = await HomePageSteps.reloadPageAndGetTodoName();
-        // assert.strictEqual(todoRefreshName, newName, `${todoRefreshName} != ${newName}`);
+        const todoRefreshName: string = await HomePageSteps.reloadPageAndGetTodoName();
+        assert.strictEqual(todoRefreshName, newName, `${todoRefreshName} != ${newName}`);
     });
 });

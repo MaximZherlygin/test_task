@@ -76,6 +76,14 @@ class HomePage extends BasePage {
     async isCheckboxActivated(): Promise<boolean> {
         return this.completedTodoForm.isExist();
     }
+
+    async clickOnNewTodoTextBox(): Promise<void> {
+        return this.newTodoTextBox.click();
+    }
+
+    async isTodoListEmpty(): Promise<boolean> {
+        return this.lastTodoText.isNotExist();
+    }
 }
 
 export { HomePage }
