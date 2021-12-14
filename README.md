@@ -37,12 +37,6 @@ You can change configuration of test performing (for example, timeouts) in `conf
 
 ### Test cases
 
-***Precondition***
-
-| Step | Expected result |
-|--------|-----------------|
-| Delete all records from https://todomvc.com/examples/angular2/ | The list is empty |
-
 ***Case #1***
 
 | Step | Expected result |
